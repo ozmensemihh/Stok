@@ -30,7 +30,7 @@ public class StockBasket {
         String s ="\nShopping Basket\n";
         double total=0.0;
         for (Map.Entry<StockItem,Integer> item:list.entrySet()) {
-            s= s+item.getKey()+" . "+ item.getValue()+"purchased\n";
+            s= s+item.getKey()+" . "+ item.getValue()+"purchased \n";
             total+=item.getKey().getPrice()*item.getValue();
         }
         return s+" toplam:"+total;
