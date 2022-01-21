@@ -22,15 +22,38 @@ public class StockList {
         }
         return 0;
     }
-    public int sellStock(String name,int stock){
-        StockItem stockItem = list.getOrDefault(name,null);
-        if((stockItem!=null)&&(stockItem.getStock()>stock)&&stock>0){
-            stockItem.addJustStock(-stock);
-            return stock;
+    public int sellStock(String name,int adet){
+        StockItem item = list.get(name);
+        if ((item!=null)&&(adet>0)){
+            return item.finalrezerced(adet);
         }
+
+
+//        StockItem stockItem = list.getOrDefault(name,null);
+//        if((stockItem!=null)&&(stockItem.getStock()>stock)&&stock>0){
+//            stockItem.addJustStock(-stock);
+//            return stock;
+//        }
         return 0;
 
     }
+
+    public int rezerveStock(String name,int adet){
+        StockItem item = list.get(name);
+        if ((item!=null)&&(adet>0)){
+            return item.rezervedStock(adet);
+        }
+        return 0;
+    }
+
+    public int unrezerveStock(String name,int adet){
+        StockItem item = list.get(name);
+        if ((item!=null)&&(adet>0)){
+            return item.unrezervedStock(adet);
+        }
+        return 0;
+    }
+
 
     public Map<String ,StockItem>items(){
         return Collections.unmodifiableMap(list);

@@ -25,6 +25,21 @@ public class StockBasket {
         return  Collections.unmodifiableMap(list);
     }
 
+    public  int removeFromBasket(StockItem item, int adet){
+        if ((item!= null)&&(adet>0)){
+             int inBasket = list.getOrDefault(item,0);
+             int newadet = inBasket+adet;
+             if (newadet>0){
+                 list.put(item,adet);
+                 return adet;
+             }else if(newadet==0){
+                 list.remove(item);
+                 return adet;
+             }
+        }
+        return 0;
+    }
+
     @Override
     public String toString() {
         String s ="\nShopping Basket\n";
